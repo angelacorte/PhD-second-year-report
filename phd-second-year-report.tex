@@ -1,0 +1,429 @@
+\documentclass[11pt]{scrartcl}
+
+% =============================================================================
+% PACKAGES
+% =============================================================================
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{scrlayer-scrpage}
+\usepackage{xcolor}
+
+% =============================================================================
+% PAGE LAYOUT AND TYPOGRAPHY
+% =============================================================================
+
+\geometry{
+  paper=a4paper,
+  top=2.5cm,
+  bottom=3cm,
+  left=3cm,
+  right=3cm,
+  headheight=0.75cm,
+  footskip=1.5cm,
+  headsep=0.75cm
+}
+
+% Paragraph formatting
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\setlist[itemize]{noitemsep}
+
+\setkomafont{section}{\normalfont\scshape}
+\setkomafont{subsection}{\normalfont\bfseries}
+\setkomafont{subsubsection}{\normalfont\itshape}
+\setkomafont{paragraph}{\normalfont\scshape}
+
+\clearpairofpagestyles
+\cfoot*{\pagemark}
+
+\pagestyle{scrheadings}
+
+
+% =============================================================================
+% ENTRY COMMANDS
+% =============================================================================
+
+% Publications
+\newcommand{\pubentry}[5]{%
+  \item
+  #1.
+  \textbf{#2}.
+  #3.
+  #4.
+
+  \begin{sloppypar}
+    \vspace{8pt}
+    \textit{#5}
+    \vspace{8pt}
+  \end{sloppypar}
+}
+
+% Conference / International Meeting
+\newcommand{\confentry}[4]{%
+  \item
+  \textbf{#1} -- #2, #3, #4.
+}
+
+% Course / School
+\newcommand{\courseentry}[7]{%
+  \item
+  \textbf{#1} by #2, #3.\\
+  Period: #4. Duration: #5. Credits: #6 CD.\\
+  Exam type: #7.
+}
+
+% Tutoring
+\newcommand{\tutorentry}[6]{%
+  \item
+  Tutor for the \textbf{#1} course (cod. #2, #3).\\
+  Course: #4.\\
+  Academic year: #5. Duration: #6.
+}
+
+% Period Abroad
+\newcommand{\abroadentry}[5]{%
+  \item
+  \textbf{#1}.\\
+  Host institution: #2.\\
+  Period: #3.\\
+  Abroad supervisor: #4.\\
+  Activity: #5.
+}
+
+% Conferences organization
+\newcommand{\conforgentry}[4]{%
+  \item
+  \textbf{#1} -- #2, #3, #4.
+}
+
+
+% =============================================================================
+% SECTION ENVIRONMENTS
+% =============================================================================
+
+% Publications
+\newenvironment{publications}
+  {%
+    \subsection*{Publications}
+    \begin{itemize}
+  }
+  {%
+    \end{itemize}
+  }
+
+% Conferences and International Meetings
+\newenvironment{conferences}
+  {%
+    \subsection*{Conferences and International Meetings}
+    \begin{itemize}
+  }
+  {%
+    \end{itemize}
+  }
+
+% Courses and Schools
+\newenvironment{courses}
+  {%
+    \subsection*{Courses and Schools}
+    \begin{itemize}
+  }
+  {%
+    \end{itemize}
+  }
+
+% Tutoring Activities
+\newenvironment{tutoring}
+  {%
+    \subsection*{Tutoring Activities}
+    \begin{itemize}
+  }
+  {%
+    \end{itemize}
+  }
+
+% Conferences organization
+\newenvironment{conforg}
+{%
+  \subsection*{Conferences Organization}
+  \begin{itemize}
+}
+{%
+  \end{itemize}
+}
+
+% Period Abroad
+\newenvironment{periodabroad}
+{%
+  \subsection*{Period Abroad}
+  \begin{itemize}
+}
+{%
+  \end{itemize}
+}
+
+
+
+% =============================================================================
+% DOCUMENT INFORMATION
+% =============================================================================
+
+\title{%
+  \normalfont\normalsize
+
+  \textsc{%
+    Università di Bologna,
+    Dipartimento di Informatica -- Scienza e Ingegneria
+  }\\
+
+  \vspace{25pt}
+  \rule{\linewidth}{0.5pt}\\
+  \vspace{20pt}
+
+  {\huge PhD Annual Report -- Second Year}
+
+  \vspace{12pt}
+  \rule{\linewidth}{2pt}\\
+  \vspace{12pt}
+}
+
+\author{\LARGE Angela Cortecchia}
+
+\date{\normalsize\today}
+
+
+% =============================================================================
+% DOCUMENT
+% =============================================================================
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Research}
+
+{\color{red}
+Describe the research activities carried out during the year, highlighting the main results and progress achieved.\\
+If you are in your 1st year or 2nd year, add your plan for the next year.
+
+\vspace{12pt}
+
+Feel free to add figures, tables, and anything you think is relevant. Remove placeholders and empty sections, if not needed.
+}
+
+% =============================================================================
+% COURSES AND SCHOOLS
+%
+% \courseentry
+% {title}
+% {professor}
+% {location}
+% {period}
+% {duration}
+% {credits}
+% {exam type}
+
+% =============================================================================
+
+\begin{courses}
+
+  \courseentry
+  {Literature Reviews: Methods and Tools}
+  {Prof. Roberto Casadei}
+  {Department of Computer Science and Engineering, University of Bologna}
+  {April -- May 2026}
+  {12 hours}
+  {2.4}
+  {Project (passed)}
+
+  \courseentry
+  {Foundations and Emerging Trends in Serverless Computing}
+  {Prof. Andrea Sabbioni}
+  {Department of Computer Science and Engineering, University of Bologna}
+  {January -- February 2026}
+  {10 hours}
+  {0.4}
+  {Attendance}
+
+  \courseentry
+  {Data Platforms and Artificial Intelligence: Challengesd and Applications}
+  {Prof. Matteo Francia}
+  {Department of Computer Science and Engineering, University of Bologna}
+  {November 2025}
+  {12 hours}
+  {0.48}
+  {Attendance}
+
+\end{courses}
+
+% =============================================================================
+% CONFERENCES and OTHER INTERNATIONAL MEETINGS
+%
+% \confentry
+% {acronym}
+% {title}
+% {date}
+% {location}
+% =============================================================================
+
+\begin{conferences}
+
+  \confentry
+  {COORDINATION 2026}
+  {21st International Conference on Coordination Models and Languages}
+  {9th -- 11th June 2026}
+  {Urbino, Italy}
+
+  \confentry
+  {WOA 2026}
+  {27th Workshop From Objects to Agents}
+  {15th -- 17th June 2026}
+  {Salerno, Italy}
+
+  \confentry
+  {DCOSS-IoT 2026}
+  {22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things}
+  {22nd -- 24th June 2026}
+  {Reykjavík, Iceland}
+
+\end{conferences}
+
+% =============================================================================
+% Conferences organization
+
+\begin{conforg}
+  \confentry{ACSOS 2026 Publicity Chair}{7th IEEE International Conference on Autonomous Computing and Self-Organizing Systems}{7th -- 11th September, 2026}{Cesena, Italy}
+\end{conforg}
+
+
+
+% =============================================================================
+% TUTORING ACTIVITIES
+%
+% \tutorentry
+% {title}
+% {code}
+% {professor}
+% {course}
+% {academic year}
+% {duration}
+% =============================================================================
+
+\begin{tutoring}
+
+  \tutorentry
+  {Object Oriented Programming}
+  {\textbf{70219}}
+  {Prof. Mirko Viroli}
+  {Bachelor's Degree Program}
+  {2025--2026}
+  {60 hours}
+
+  \tutorentry
+  {Object Oriented Programming}
+  {\textbf{70219}}
+  {Prof. Mirko Viroli}
+  {Bachelor's Degree Program}
+  {2026--2027}
+  {60 hours}
+
+\end{tutoring}
+
+% =============================================================================
+% PERIOD ABROAD
+%
+% \abroadentry
+% {title}
+% {host institution}
+% {period}
+% {abroad supervisor}
+% {activity}
+% =============================================================================
+
+\begin{periodabroad}
+
+  \abroadentry
+  {Integration of Control Barrier Functions for Safety-Critical Guarantees in Aggregate Computing}
+  {MARC -- Mälardalen University Automation Research Center, Mälardalen University (MDU), Sweden}
+  {January -- April 2026}
+  {Prof. Alessandro Vittorio Papadopoulos}
+  {Research on the integration of Control Lyapunov Functions and Control Barrier Functions into Aggregate Computing, with a focus on providing stability and safety guarantees during transient adaptation phases. The activity included the design and implementation of a working integration within the Aggregate Computing framework, the investigation of mappings from collective-level safety requirements to local control constraints, and the simulation-based validation of safety-critical multi-robot scenarios.}
+
+\end{periodabroad}
+
+% =============================================================================
+% PUBLICATIONS
+%
+% \pubentry
+% {authors}
+% {title}
+% {venue}
+% {date}
+% {abstract}
+% =============================================================================
+
+\begin{publications}
+
+  \pubentry
+  {\textbf{Angela Cortecchia}, Danilo Pianini, and Mirko Viroli}
+  {A Self-stabilizing Min--Max Consensus via Path--Loop Detection}
+  {International Conference on Coordination Models and Languages (COORDINATION 2026)}
+  {June 2026}
+  {In large-scale distributed systems, such as the Internet of Things (IoT), min-max consensus algorithms provide a mechanism for collective coordination by enabling nodes to converge on a “best” value produced by one of the participants in the computation. However, min-max consensus algorithms are monotonic and non-self-stabilizing by nature: once a value is merged into the aggregate it cannot be retracted, leading to propagation of stale or incorrect data in the presence of transient faults or topology changes. In this work, we propose a novel self-stabilizing min-max consensus algorithm ensuring convergence to the best available value in the network by propagating information along shortest valid paths. Each gossip message carries a value and path of nodes that have acknowledged it, enabling loop-freedom and natural pruning of obsolete contributions. We rely on field-based coordination and specifically the Aggregate Computing paradigm to present the algorithm, prove self-stabilization, and provide an implementation as a reusable library for the \textit{Collektive} DSL. This work contributes a foundational building block for resilient coordination in pervasive computing systems, paving the way to more complex, self-stabilizing distributed applications.}
+
+%  \pubentry
+%  {\textbf{Angela Cortecchia}, Giovanni Ciatto, Roberto Casadei, and Danilo Pianini}
+%  {FieldVMC: an asynchronous model and platform for self-organising morphogenesis of artificial structures}
+%  {\emph{Complex \& Intelligent Systems}, vol.~12, no.~2}
+%  {2026}
+%  {Introduces FieldVMC, an asynchronous model and platform for the self-organising morphogenesis of artificial structures.}
+
+  \pubentry
+  {\textbf{Angela Cortecchia}, Davide Domini, Giovanni Ciatto, Roberto Casadei, Danilo Pianini, and Mirko Viroli}
+  {Flexible Distributed Particle Filtering for the Internet of Things via Aggregate Computing}
+  {22nd International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026)}
+  {June 2026}
+  {State estimation from uncertain, distributed observations is central in many cyber-physical applications. While Distributed Particle Filtering (DPF) algorithms address nonlinear and non-Gaussian estimations in distributed settings, most solutions remain tied to specific architectures and communication assumptions, limiting adaptability in open, heterogeneous deployments-most notably, the Internet of Things (IoT). In this paper, we propose a field-based formulation of Distributed Particle Filtering grounded in Aggregate Computing (AC). By expressing estimation and information dissemination as computational fields, our approach decouples the core filtering logic from coordination and data-flow strategies. This enables systematic customisation of key design dimensions, including fusion-center placement and resilience, aggregated measurement functions, as well as the type and scope of information propagation. Through a set of in-silico experiments, we show how diverse DPF configurations can be derived within a unified framework, highlighting trade-offs among accuracy, communication cost, and robustness. Overall, the proposed approach positions AC as an effective abstraction layer for engineering adaptable DPF solutions in open IoT environments.}
+
+  \pubentry
+  {Manuel Andruccioli, \textbf{Angela Cortecchia}, Davide Domini, Nicolas Farabegoli, Giovanni Delnevo, Danilo Pianini, Riccardo Venanzi, and Mirko Viroli}
+  {HarmoniKt: a Unifying Middleware for Heterogeneous Robot Fleets}
+  {2026 IEEE 23rd Consumer Communications \& Networking Conference (CCNC)}
+  {January 2026}
+  {In recent years, companies have increasingly invested in Industry 4.0 research to automate repetitive tasks or activities that may be harmful to humans. For instance, large-scale warehouses, such as those operated by Amazon, rely heavily on mobile robots to streamline logistics operations and ensure worker safety. At the same time, robot manufacturers are releasing more reliable platforms with advanced capabilities, making them suitable for complex industrial tasks. Despite this growing interest and technological progress, significant challenges remain. A key and non-trivial issue lies in the integration of heterogeneous robot fleets: each vendor typically employs proprietary technologies and interfaces, which hinders interoperability and limits the potential of multi-brand deployments.In this work, we introduce HarmoniKt, an extensible middle-ware that addresses this challenge by introducing an abstraction layer and providing a unified REST API for the control and management of heterogeneous robots. Our solution has been validated in a physical industrial-like environment using a mixed fleet of Boston Dynamics Spot and Mobile Industrial Robots (MiR). Furthermore, we present a comparative analysis showing that the access latency introduced by our middleware is not significantly higher than that of direct robot access, demonstrating the feasibility of unified robot management without compromising performance.}
+
+  \pubentry
+  {Filippo Gurioli, Martina Baiardi, \textbf{Angela Cortecchia}, and Danilo Pianini}
+  {High-Fidelity Simulation of Aggregate Computing Systems with Collektivity}
+  {International Conference on Coordination Models and Languages (COORDINATION 2026)}
+  {June 2026}
+  {The verification and validation of collective adaptive systems is a challenging task, typically tackled through a combination of approaches including formal analysis, simulation, Hardware-in-the-Loop, and real-world experimentation. One critical aspect of simulation concerns the trade-off between realism and scalability. A typical validation pipeline involves initial simulation of large-scale scenarios with simplified models of the world, and detail is gradually increased in subsequent steps, introducing more realistic physical and environmental dynamics. An underexplored opportunity in this context lies in leveraging game development platforms to achieve high-fidelity simulations. In this work, we explore the integration of an existing implementation of aggregate programming, a common paradigm for engineering collective adaptive systems, with Unity, a widely used game development platform. We show that this integration is feasible even though the two systems were not designed to work together, we discuss the technical challenges that were encountered and the limitations of the approach, while highlighting the potential for such integration to enhance simulation realism in the study of collective adaptive systems.}
+
+  \pubentry
+  {\textbf{Angela Cortecchia}, Davide Domini, Giovanni Ciatto, Roberto Casadei, and Mirko Viroli}
+  {Multi-Target Tracking via Field-Based Distributed Particle Filtering}
+  {7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2026)}
+  {September 2026}
+  {Distributed Particle Filtering (DPF) is effective for nonlinear and non-Gaussian state estimation in distributed sensing systems, but existing approaches are often tied to fixed architectures, predefined roles, or rigid communication assumptions. This limits their applicability in open and dynamic scenarios, where sensors may be heterogeneous, mobile, intermittently connected, or subject to failures. In this paper, we reinterpret DPF through Aggregate Computing (AC), modelling sensing, information dissemination, role assignment, and particle-based estimation as computational fields. This decouples filtering logic from coordination mechanisms, turning architectural choices into composable and runtime-adaptive aggregate patterns. The resulting formulation supports self-organising DPF: nodes interact locally while collectively maintaining estimates, adapting sensing regions, and dynamically assigning roles such as leaders or regional coordinators. It also enables self-healing under failures and topology changes, and supports interoperability among fixed and mobile sensing nodes. We evaluate the approach in a multitarget tracking scenario with mobile observers, showing that field-based DPF supports robust and flexible estimation under changing connectivity and spatial configurations. Overall, AC emerges as a unifying abstraction layer for engineering adaptive and self-organising DPF solutions in open, heterogeneous, and dynamic Internet of Things (IoT) environments.}
+
+  \pubentry
+  {\textbf{Angela Cortecchia}, Alessandro Papadopoulos, and Danilo Pianini}
+  {Toward Safe Aggregate Computing: A Distributed Control-Theoretic Safety Filter for Robot Swarms}
+  {7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2026)}
+  {September 2026}
+  {Robot swarms must coordinate their actions to achieve global objectives in applications such as search and rescue or environmental monitoring. In these scenarios, unsafe transient behavior may cause collisions with other robots or environmental obstacles or loss of connectivity before the swarm reaches its intended configuration. This paper proposes an architecture that integrates Aggregate Computing with a control-theoretic safety filter for robot swarms. The aggregate program computes the nominal collective behavior, while a safety-filtering layer refines the resulting commands through Control Lyapunov Function and Control Barrier Function constraints. This layer translates convergence and safety requirements into constraints that are enforced on each robot in a distributed fashion. We evaluate the approach in proof-of-concept simulations involving multiple targets, leader-based coordination, connectivity preservation, and environments with static obstacles. The results illustrate how Aggregate Computing can specify adaptive swarm-level objectives, while the safety filter modifies unsafe nominal commands to respect constraints whenever the active constraints are feasible.}
+
+  \pubentry
+  {\textbf{Angela Cortecchia}}
+  {Towards Collective Robotic Operating Systems through Aggregate Computing}
+  {7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2026)}
+  {September 2026}
+  {Swarm robotic systems are increasingly relevant for missions in which many heterogeneous devices must operate in dynamic and potentially safety-critical environments. Programming such systems remains challenging: developers need to express objectives at the collective level, while their execution is distributed across devices that may move, fail, join or leave the system, without a centralized point of coordination. Aggregate Computing addresses this issue by providing macroprogramming abstractions for specifying resilient and self-organizing collective behaviors. However, current Aggregate Computing applications typically execute a single collective program and offer limited support for runtime adaptation, preemption, concurrent applications, and safety guarantees during transient phases. This research investigates the foundations of a Collective Robotic Operating System built on Aggregate Computing: a middleware layer that lifts ROS-inspired capabilities from individual robots to the collective level. The paper outlines the main requirements for such a system and reports ongoing contributions on morphogenetic formation control, runtime path replanning, self-stabilizing consensus, collective sensing, and safety guarantees. These results provide initial building blocks towards a collective operating layer for swarm robotics, with future work focusing on safe runtime adaptation and support for multiple concurrent collective processes.}
+
+\end{publications}
+
+\end{document}

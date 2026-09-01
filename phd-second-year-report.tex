@@ -184,7 +184,10 @@
   \rule{\linewidth}{0.5pt}\\
   \vspace{20pt}
 
-  {\huge PhD Annual Report -- Second Year}
+  {\huge PhD Annual Report -- Second Year\\
+  \vspace{15pt}
+  \LARGE Advances in Collective Robotics Through Macro-Programming\\[14pt]
+  }
 
   \vspace{12pt}
   \rule{\linewidth}{2pt}\\
@@ -214,14 +217,155 @@
 
 \subsection*{Research}
 
-{\color{red}
-Describe the research activities carried out during the year, highlighting the main results and progress achieved.\\
-If you are in your 1st year or 2nd year, add your plan for the next year.
+During the second year of my PhD, my research focused on advances in collective robotics through macro-programming,
+with Aggregate Computing (AC) as the main programming paradigm adopted throughout the work.
+%
+Collective robotic systems consist of multiple interacting devices that must coordinate their local actions to achieve system-level objectives,
+often while operating under mobility,
+failures, and continuously changing communication conditions.
+%
+In these settings, relying on fixed roles or predefined coordination structures can limit the ability of the system to adapt at runtime.
 
-\vspace{12pt}
+Aggregate Computing provides a different perspective by expressing collective behavior through distributed computations that emerge from local interactions among devices.
+%
+My research investigates how this programming model can be exploited to engineer robotic collectives whose organization can adapt together with the system and its environment.
+%
+During this year,
+I studied this problem from complementary perspectives,
+ranging from resilient information propagation to distributed state estimation, morphogenetic organization, and runtime safety.
+%
+Although addressing different aspects of collective robotics, these activities share the objective of developing reusable mechanisms for the coordination and management of collective robotic systems.
 
-Feel free to add figures, tables, and anything you think is relevant. Remove placeholders and empty sections, if not needed.
-}
+\paragraph*{Self-stabilizing Gossip and Resilient Coordination}
+
+I completed a self-stabilizing min--max gossip algorithm for Aggregate Computing, designed to recover from transient faults and topology changes without explicit resets.
+%
+The approach relies on path--loop detection to remove obsolete information and avoid cyclic dependencies,
+while preserving lightweight local communication.
+%
+The algorithm was formally proved self-stabilizing,
+implemented in \textit{Collektive}, and published at COORDINATION 2026.
+
+The work is currently being extended to generalize the underlying mechanism beyond min--max consensus and investigate its applicability to a broader range of resilient collective coordination problems.
+
+\paragraph*{Self-organizing Distributed Particle Filtering}
+
+Another major research line concerned Distributed Particle Filtering (DPF).
+%
+Existing DPF approaches distribute the estimation process according to different predefined organizations.
+%
+For instance, some rely on a central fusion node that collects and combines information from the other sensors,
+while others assign coordination responsibilities to selected leaders or use fully decentralized consensus-based schemes.
+%
+These approaches provide different trade-offs, but their coordination structure, node roles, and information flows are generally defined as part of the filtering protocol itself.
+%
+My work investigates instead whether these aspects can be expressed independently of the filtering logic and adapted at runtime as the sensing system changes.
+
+To this end, the main components of DPF are expressed through computational fields,
+namely distributed data structures that associate values with the devices of the system and evolve over space and time through local interactions.
+%
+This representation makes it possible to express both estimation and coordination at the collective level,
+allowing the organization of the filtering process to change when connectivity, sensing conditions, mobility, or device availability change.
+
+The first formulation,
+presented at DCOSS-IoT 2026,
+focused on showing how different DPF organizations could be expressed within the same field-based model by changing the coordination and information-dissemination strategies rather than the underlying filtering logic.
+%
+The work was subsequently extended for ACSOS 2026 towards a self-organizing multi-target tracking scenario.
+%
+In this setting, multiple moving targets, represented by zebras in the simulated scenario,
+are observed by a distributed sensing system that also includes mobile observers.
+%
+The mobile observers adapt their spatial organization as the targets move, while the DPF continuously maintains their estimates.
+%
+This allowed us to study distributed estimation together with mobility and changing network connectivity,
+showing how sensing and coordination roles can adapt at runtime within the same field-based formulation.
+
+\paragraph*{Safety Guarantees for Aggregate-Programmed Robot Swarms}
+
+From January to April 2026, I carried out a research period at Mälardalen University (MDU),
+within the Mälardalen University Automation Research Center (MARC),
+under the supervision of Prof. Alessandro Vittorio Papadopoulos.
+
+The activity focused on integrating Control Lyapunov Functions (CLFs) and Control Barrier Functions (CBFs) with Aggregate Computing.
+%
+The resulting architecture separates the nominal collective behavior, computed by the aggregate program,
+from a distributed safety-filtering layer that modifies the resulting commands whenever they would violate safety requirements.
+%
+This allows the swarm to pursue its collective objective while accounting for constraints related to obstacles,
+nearby robots, and communication connectivity.
+%
+A working implementation was developed in \textit{Collektive} and validated through simulation in Alchemist.
+
+The collaboration with the MARC group continued after the research stay and led to a joint paper presented at SISSY 2026.
+%
+Further work is planned on more complex formations, such as geometric formations that must be preserved while the swarm moves collectively through the environment,
+and on the corresponding safety guarantees during their adaptation.
+
+\paragraph*{Morphogenetic Self-Organization}
+
+The research on FieldVMC also continued during the year and was consolidated with the publication of the journal article in
+\textit{Complex \& Intelligent Systems}.
+%
+FieldVMC provides a decentralized and asynchronous formulation of morphogenetic growth over arbitrary network topologies.
+
+I am now extending FieldVMC by combining it with Artificial Potential Fields (APFs) and Signed Distance Fields (SDFs).
+%
+The idea is to use APFs to steer the local evolution of the structure, while SDFs provide a geometric description of the target shape and its boundaries.
+%
+Together, these mechanisms are being investigated as a way to guide morphogenetic growth towards more complex artificial structures in simulation without losing the decentralized and self-organizing properties of the original approach.
+
+\paragraph*{Collektive Framework and Coordination Library}
+
+In parallel with the development of these algorithms,
+I am contributing to an ongoing journal work on \textit{Collektive},
+the Kotlin-based framework used throughout my research to implement Aggregate Computing applications.
+%
+The work aims to consolidate Collektive as a modern framework for programming heterogeneous collective systems,
+while providing a library of reusable coordination abstractions on top of its core programming model.
+
+The mechanisms developed throughout my PhD are intended to progressively contribute to this library rather than remain isolated implementations tied to individual experiments.
+%
+In particular, the self-stabilizing coordination mechanisms and other reusable abstractions emerging from the work on distributed estimation,
+morphogenesis, and collective robotics can become part of the higher-level functionality offered by Collektive.
+%
+This provides a direct path from the research results to reusable software components that can support the development of new aggregate applications.
+
+\paragraph*{Scientific Community Service}
+
+During 2026, I served as Publicity Chair for the 7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2026), hosted at the Cesena Campus of the University of Bologna. I also contributed to the scientific community as a reviewer for \textit{Complex \& Intelligent Systems}, a Q1 peer-reviewed journal.
+
+\paragraph*{Research Plan for the Next Year}
+
+During the next year,
+I plan to continue the main research directions developed so far while making them more tightly connected.
+%
+The FieldVMC work will be extended with APF- and SDF-based guidance to investigate the generation of more complex artificial structures.
+%
+The collaboration with Mälardalen University will also continue, extending the current safety-filter architecture towards more advanced swarm formations and safety constraints.
+
+The self-stabilizing gossip work will be further developed by generalizing the mechanism introduced for min--max consensus and investigating its use for other collective coordination problems.
+
+The work on self-organizing DPF will be extended towards more realistic and heterogeneous distributed sensing scenarios.
+%
+In particular, I plan to investigate systems in which different types of simulated devices coexist,
+such as static sensing infrastructure and mobile robotic sensors, and cooperate within the same estimation process.
+%
+Mobile sensors will not only contribute observations,
+but will also coordinate their motion to maintain a stable spatial formation while adapting to the targets and to changes in the sensing environment.
+%
+This will allow the approach to be evaluated in more realistic simulation scenarios,
+where distributed estimation, heterogeneous sensing, mobility, and collective motion must operate together rather than being studied in isolation.
+
+In parallel,
+I will continue contributing to the development of \textit{Collektive} and to the ongoing journal work on the framework.
+%
+A particular objective will be to consolidate the reusable mechanisms developed throughout the PhD into the coordination libraries offered by Collektive,
+making them available as composable building blocks for the development of aggregate applications.
+
+A further objective will be to investigate how multiple collective applications can coexist and be adapted or preempted at runtime over partially overlapping and dynamically evolving groups of devices.
+%
+This moves the focus from individual collective algorithms towards the runtime management and interaction of multiple collective processes.
 
 % =============================================================================
 % COURSES AND SCHOOLS

@@ -217,19 +217,15 @@
 
 \subsection*{Research}
 
-During the second year of my PhD, my research continued to investigate how macro programming can support the engineering of collective robotic systems.
+During the second year of my PhD, my research continued to investigate how macro-programming can support the engineering of collective robotic systems.
 %
-In these systems, collective objectives must be realised by multiple distributed devices whose connectivity, availability, and position may change at runtime.
+In collective robotic systems, a global objective must be achieved through the coordinated actions of multiple distributed devices, even when their connectivity, availability, or spatial configuration changes at runtime.
 %
-This makes it difficult to rely on centralized coordination or on solutions in which device roles and communication patterns are fixed in advance.
+These conditions make centralized coordination and solutions based on statically assigned roles or communication structures unsuitable for many scenarios.
 %
 Macro-programming addresses this problem by raising the level of abstraction from the individual device to the collective behavior of the system.
 %
 In particular, my work adopts Aggregate Computing (AC), a macro-programming approach in which collective behavior is expressed through the composition of computational fields and implemented through local interactions among devices.
-
-%Building on the research carried out during the first year, the second-year activity focused on developing and evaluating mechanisms that address specific requirements of collective robotic applications.
-%
-%The work on self-stabilizing gossip investigates resilient distributed coordination in the presence of failures and topology changes; the work on Distributed Particle Filtering studies how sensing and state estimation can be organized collectively and adapted at runtime; the research carried out at Mälardalen University introduces control-theoretic safety guarantees for aggregate-programmed robot swarms; and the ongoing extension of FieldVMC investigates the generation of more structured collective formations.
 
 \paragraph*{Self-stabilizing Min-Max Gossip}
 
@@ -277,7 +273,7 @@ The safety layer is used to enforce requirements such as obstacle avoidance, int
 %
 A working implementation was developed in \textit{Collektive} and validated through simulation in Alchemist.
 
-The collaboration with the MARC group continued after the research stay and led to a joint paper presented at SISSY 2026.
+The collaboration with the MARC group continued after the research stay and led to a joint paper presented in the ACSOS 2026 Companion proceedings.
 %
 Further work will consider more complex formations, for example formations whose geometric structure must be preserved while the swarm moves collectively, together with the corresponding safety guarantees during adaptation.
 
@@ -287,11 +283,11 @@ The research on FieldVMC also continued during the year and was consolidated wit
 %
 FieldVMC reformulates the Vascular Morphogenesis Controller as a decentralized and asynchronous field-based computation that can operate over arbitrary network topologies.
 
-I am now extending FieldVMC by combining it with Artificial Potential Fields (APFs) and Signed Distance Fields (SDFs).
+Current work extends FieldVMC by combining it with Artificial Potential Fields (APFs) and Signed Distance Fields (SDFs).
 %
 APFs are used to steer the local evolution of the structure, while SDFs provide a geometric representation of the desired shape and of the distance from its boundaries.
 %
-The objective is to use these mechanisms to guide morphogenetic growth towards more complex artificial structures in simulation while preserving the decentralized and self-organizing nature of the original approach.
+This extension is intended to guide morphogenetic growth towards explicitly defined and more complex artificial structures while preserving decentralized and self-organizing execution.
 
 \paragraph*{Collektive Framework}
 
@@ -299,9 +295,7 @@ In parallel with the development of these algorithms, I am contributing to an on
 %
 The work aims to consolidate Collektive as a modern aggregate-programming framework for heterogeneous systems and to strengthen the set of reusable coordination abstractions offered by its libraries.
 
-The mechanisms developed during the PhD are intended to contribute progressively to these libraries rather than remain isolated implementations tied to individual experiments.
-%
-%In particular, reusable results emerging from the work on gossip, distributed estimation, morphogenesis, and collective robotics can become higher-level building blocks available to other Collektive applications.
+The algorithms and coordination abstractions developed throughout the PhD are being designed so that, when sufficiently general, they can be incorporated into these libraries rather than remain implementations tied to individual experiments.
 
 \paragraph*{Scientific Community Service}
 
@@ -311,11 +305,11 @@ I also served as a reviewer for \textit{Complex \& Intelligent Systems}, a Q1 pe
 
 \paragraph*{Research Plan for the Next Year}
 
-During the next year, I plan to continue the main research directions developed so far.
+During the next year, I plan to consolidate and extend the main research lines developed so far.
 %
-The FieldVMC work will be extended with APF- and SDF-based guidance to investigate the generation of more complex artificial structures.
-
-The collaboration with Mälardalen University will also continue, extending the current safety-filter architecture towards more advanced swarm formations and safety constraints.
+For FieldVMC, the focus will be on completing and evaluating the APF- and SDF-based extension for the generation of more complex artificial structures.
+%
+The collaboration with Mälardalen University will continue by extending the current safety-filter architecture to more complex swarm formations and by studying how safety constraints interact with formation maintenance during adaptation.
 
 The self-stabilizing gossip work will be further developed by generalizing the mechanism introduced for min--max consensus and investigating its use in other collective coordination problems.
 
@@ -325,7 +319,7 @@ In particular, I plan to investigate simulations in which different types of dev
 %
 The mobile sensors will also coordinate their motion to maintain a stable formation while adapting to moving targets and to changes in the sensing environment.
 %
-This will make it possible to evaluate distributed estimation together with heterogeneous sensing and collective motion in scenarios that are closer to realistic deployments.
+This will make it possible to evaluate distributed estimation together with heterogeneous sensing and collective motion in simulation scenarios that better approximate realistic deployments.
 
 In parallel, I will continue contributing to the ongoing journal work on \textit{Collektive}, with the objective of consolidating the reusable mechanisms developed throughout the PhD into the coordination libraries offered by the framework.
 
@@ -368,7 +362,7 @@ This extends the focus from individual collective algorithms to the runtime mana
   {Attendance}
 
   \courseentry
-  {Data Platforms and Artificial Intelligence: Challengesd and Applications}
+  {Data Platforms and Artificial Intelligence: Challenges and Applications}
   {Prof. Matteo Francia}
   {Department of Computer Science and Engineering, University of Bologna}
   {November 2025}
@@ -408,13 +402,19 @@ This extends the focus from individual collective algorithms to the runtime mana
   {22nd -- 24th June 2026}
   {Reykjavík, Iceland}
 
+  \confentry
+  {ACSOS 2026 Publicity Chair}
+  {7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems}
+  {7th -- 11th September, 2026}
+  {Cesena, Italy}
+
 \end{conferences}
 
 % =============================================================================
 % Conferences organization
 
 \begin{conforg}
-  \confentry{ACSOS 2026 Publicity Chair}{7th IEEE International Conference on Autonomous Computing and Self-Organizing Systems}{7th -- 11th September, 2026}{Cesena, Italy}
+  \confentry{ACSOS 2026 Publicity Chair}{7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems}{7th -- 11th September, 2026}{Cesena, Italy}
 \end{conforg}
 
 

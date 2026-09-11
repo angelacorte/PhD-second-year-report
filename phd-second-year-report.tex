@@ -11,6 +11,7 @@
 \usepackage{enumitem}
 \usepackage{scrlayer-scrpage}
 \usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
 
 % =============================================================================
 % PAGE LAYOUT AND TYPOGRAPHY
@@ -49,12 +50,16 @@
 % =============================================================================
 
 % Publications
-\newcommand{\pubentry}[5]{%
+% #6 is the DOI (without the https://doi.org/ prefix); leave it empty when not yet assigned
+\newcommand{\pubentry}[6]{%
   \item
   #1.
   \textbf{#2}.
   #3.
   #4.
+  \if\relax\detokenize{#6}\relax\else
+    \\ DOI: \href{https://doi.org/#6}{\texttt{#6}}%
+  \fi
 
   \begin{sloppypar}
     \vspace{8pt}
@@ -455,6 +460,7 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
 % {venue}
 % {date}
 % {abstract}
+% {doi}
 % =============================================================================
 
 \begin{publications}
@@ -465,6 +471,7 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
   {International Conference on Coordination Models and Languages (COORDINATION 2026)}
   {June 2026}
   {In large-scale distributed systems, such as the Internet of Things (IoT), min-max consensus algorithms provide a mechanism for collective coordination by enabling nodes to converge on a “best” value produced by one of the participants in the computation. However, min-max consensus algorithms are monotonic and non-self-stabilizing by nature: once a value is merged into the aggregate it cannot be retracted, leading to propagation of stale or incorrect data in the presence of transient faults or topology changes. In this work, we propose a novel self-stabilizing min-max consensus algorithm ensuring convergence to the best available value in the network by propagating information along shortest valid paths. Each gossip message carries a value and path of nodes that have acknowledged it, enabling loop-freedom and natural pruning of obsolete contributions. We rely on field-based coordination and specifically the Aggregate Computing paradigm to present the algorithm, prove self-stabilization, and provide an implementation as a reusable library for the \textit{Collektive} DSL. This work contributes a foundational building block for resilient coordination in pervasive computing systems, paving the way to more complex, self-stabilizing distributed applications.}
+  {10.1007/978-3-032-28358-0\_5}
 
 %  \pubentry
 %  {\textbf{Angela Cortecchia}, Giovanni Ciatto, Roberto Casadei, and Danilo Pianini}
@@ -472,6 +479,7 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
 %  {\emph{Complex \& Intelligent Systems}, vol.~12, no.~2}
 %  {2026}
 %  {Introduces FieldVMC, an asynchronous model and platform for the self-organising morphogenesis of artificial structures.}
+%  {10.1007/s40747-025-02141-y}
 
   \pubentry
   {\textbf{Angela Cortecchia}, Davide Domini, Giovanni Ciatto, Roberto Casadei, Danilo Pianini, and Mirko Viroli}
@@ -479,6 +487,7 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
   {22nd International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026)}
   {June 2026}
   {State estimation from uncertain, distributed observations is central in many cyber-physical applications. While Distributed Particle Filtering (DPF) algorithms address nonlinear and non-Gaussian estimations in distributed settings, most solutions remain tied to specific architectures and communication assumptions, limiting adaptability in open, heterogeneous deployments-most notably, the Internet of Things (IoT). In this paper, we propose a field-based formulation of Distributed Particle Filtering grounded in Aggregate Computing (AC). By expressing estimation and information dissemination as computational fields, our approach decouples the core filtering logic from coordination and data-flow strategies. This enables systematic customisation of key design dimensions, including fusion-center placement and resilience, aggregated measurement functions, as well as the type and scope of information propagation. Through a set of in-silico experiments, we show how diverse DPF configurations can be derived within a unified framework, highlighting trade-offs among accuracy, communication cost, and robustness. Overall, the proposed approach positions AC as an effective abstraction layer for engineering adaptable DPF solutions in open IoT environments.}
+  {10.48550/arXiv.2606.18483}
 
   \pubentry
   {Manuel Andruccioli, \textbf{Angela Cortecchia}, Davide Domini, Nicolas Farabegoli, Giovanni Delnevo, Danilo Pianini, Riccardo Venanzi, and Mirko Viroli}
@@ -486,6 +495,7 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
   {2026 IEEE 23rd Consumer Communications \& Networking Conference (CCNC)}
   {January 2026}
   {In recent years, companies have increasingly invested in Industry 4.0 research to automate repetitive tasks or activities that may be harmful to humans. For instance, large-scale warehouses, such as those operated by Amazon, rely heavily on mobile robots to streamline logistics operations and ensure worker safety. At the same time, robot manufacturers are releasing more reliable platforms with advanced capabilities, making them suitable for complex industrial tasks. Despite this growing interest and technological progress, significant challenges remain. A key and non-trivial issue lies in the integration of heterogeneous robot fleets: each vendor typically employs proprietary technologies and interfaces, which hinders interoperability and limits the potential of multi-brand deployments.In this work, we introduce HarmoniKt, an extensible middle-ware that addresses this challenge by introducing an abstraction layer and providing a unified REST API for the control and management of heterogeneous robots. Our solution has been validated in a physical industrial-like environment using a mixed fleet of Boston Dynamics Spot and Mobile Industrial Robots (MiR). Furthermore, we present a comparative analysis showing that the access latency introduced by our middleware is not significantly higher than that of direct robot access, demonstrating the feasibility of unified robot management without compromising performance.}
+  {10.1109/CCNC65079.2026.11366553}
 
   \pubentry
   {Filippo Gurioli, Martina Baiardi, \textbf{Angela Cortecchia}, and Danilo Pianini}
@@ -493,6 +503,7 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
   {International Conference on Coordination Models and Languages (COORDINATION 2026)}
   {June 2026}
   {The verification and validation of collective adaptive systems is a challenging task, typically tackled through a combination of approaches including formal analysis, simulation, Hardware-in-the-Loop, and real-world experimentation. One critical aspect of simulation concerns the trade-off between realism and scalability. A typical validation pipeline involves initial simulation of large-scale scenarios with simplified models of the world, and detail is gradually increased in subsequent steps, introducing more realistic physical and environmental dynamics. An underexplored opportunity in this context lies in leveraging game development platforms to achieve high-fidelity simulations. In this work, we explore the integration of an existing implementation of aggregate programming, a common paradigm for engineering collective adaptive systems, with Unity, a widely used game development platform. We show that this integration is feasible even though the two systems were not designed to work together, we discuss the technical challenges that were encountered and the limitations of the approach, while highlighting the potential for such integration to enhance simulation realism in the study of collective adaptive systems.}
+  {10.1007/978-3-032-28358-0\_13}
 
   \pubentry
   {\textbf{Angela Cortecchia}, Davide Domini, Giovanni Ciatto, Roberto Casadei, and Mirko Viroli}
@@ -500,6 +511,7 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
   {7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2026)}
   {September 2026}
   {Distributed Particle Filtering (DPF) is effective for nonlinear and non-Gaussian state estimation in distributed sensing systems, but existing approaches are often tied to fixed architectures, predefined roles, or rigid communication assumptions. This limits their applicability in open and dynamic scenarios, where sensors may be heterogeneous, mobile, intermittently connected, or subject to failures. In this paper, we reinterpret DPF through Aggregate Computing (AC), modelling sensing, information dissemination, role assignment, and particle-based estimation as computational fields. This decouples filtering logic from coordination mechanisms, turning architectural choices into composable and runtime-adaptive aggregate patterns. The resulting formulation supports self-organising DPF: nodes interact locally while collectively maintaining estimates, adapting sensing regions, and dynamically assigning roles such as leaders or regional coordinators. It also enables self-healing under failures and topology changes, and supports interoperability among fixed and mobile sensing nodes. We evaluate the approach in a multitarget tracking scenario with mobile observers, showing that field-based DPF supports robust and flexible estimation under changing connectivity and spatial configurations. Overall, AC emerges as a unifying abstraction layer for engineering adaptive and self-organising DPF solutions in open, heterogeneous, and dynamic Internet of Things (IoT) environments.}
+  {TBD}
 
   \pubentry
   {\textbf{Angela Cortecchia}, Alessandro Papadopoulos, and Danilo Pianini}
@@ -507,6 +519,7 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
   {7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2026)}
   {September 2026}
   {Robot swarms must coordinate their actions to achieve global objectives in applications such as search and rescue or environmental monitoring. In these scenarios, unsafe transient behavior may cause collisions with other robots or environmental obstacles or loss of connectivity before the swarm reaches its intended configuration. This paper proposes an architecture that integrates Aggregate Computing with a control-theoretic safety filter for robot swarms. The aggregate program computes the nominal collective behavior, while a safety-filtering layer refines the resulting commands through Control Lyapunov Function and Control Barrier Function constraints. This layer translates convergence and safety requirements into constraints that are enforced on each robot in a distributed fashion. We evaluate the approach in proof-of-concept simulations involving multiple targets, leader-based coordination, connectivity preservation, and environments with static obstacles. The results illustrate how Aggregate Computing can specify adaptive swarm-level objectives, while the safety filter modifies unsafe nominal commands to respect constraints whenever the active constraints are feasible.}
+  {TBD}
 
   \pubentry
   {\textbf{Angela Cortecchia}}
@@ -514,6 +527,7 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
   {7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2026)}
   {September 2026}
   {Swarm robotic systems are increasingly relevant for missions in which many heterogeneous devices must operate in dynamic and potentially safety-critical environments. Programming such systems remains challenging: developers need to express objectives at the collective level, while their execution is distributed across devices that may move, fail, join or leave the system, without a centralized point of coordination. Aggregate Computing addresses this issue by providing macroprogramming abstractions for specifying resilient and self-organizing collective behaviors. However, current Aggregate Computing applications typically execute a single collective program and offer limited support for runtime adaptation, preemption, concurrent applications, and safety guarantees during transient phases. This research investigates the foundations of a Collective Robotic Operating System built on Aggregate Computing: a middleware layer that lifts ROS-inspired capabilities from individual robots to the collective level. The paper outlines the main requirements for such a system and reports ongoing contributions on morphogenetic formation control, runtime path replanning, self-stabilizing consensus, collective sensing, and safety guarantees. These results provide initial building blocks towards a collective operating layer for swarm robotics, with future work focusing on safe runtime adaptation and support for multiple concurrent collective processes.}
+  {TBD}
 
   \pubentry
   {Nicolas Farabegoli, Gianluca Aguzzi, Martina Baiardi, \textbf{Angela Cortecchia}, Davide Domini, Danilo Pianini, Mirko Viroli}
@@ -521,6 +535,7 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
   {Science of Computer Programming}
   {September 2026}
   {Aggregate computing is a paradigm with over a decade of investigation and multiple programming frameworks available, which proved to be particularly suitable for the simulation of applications in challenging domains such as smart cities and robot swarms. This paper introduces Project Emerge,which is a toolchain for practical multi-robot demonstrations based on aggregate computing principles, and validates it with a live interactive demo in an open-public event in the context of the European Researchers’ Night. More specifically, we show how we coordinated a team of mobile robots to form spatial patterns. We discuss the practical demonstration performed in an indoor environment, which exploits a camera system and ArUco markers for localization.}
+  {10.1016/j.scico.2026.103559}
 
 \end{publications}
 

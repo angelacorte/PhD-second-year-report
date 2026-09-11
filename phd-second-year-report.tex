@@ -218,89 +218,86 @@
 
 \subsection*{Research}
 
-During the second year of my PhD, my research continued to investigate how macro-programming can support the engineering of collective robotic systems.
+My doctoral research investigates how macro-programming can support the engineering of collective robotic systems,
+with Aggregate Computing (AC) as the main programming paradigm adopted throughout the work.
 %
-These systems must achieve global objectives through the coordinated actions of distributed devices whose connectivity, availability, and spatial configuration may change at runtime.
+Collective robotic applications require groups of distributed devices to coordinate towards system-level objectives while operating under mobility,
+failures, changing connectivity, and heterogeneous sensing capabilities.
 %
-Macro-programming raises the level of abstraction from individual devices to collective behavior; in particular, my work adopts Aggregate Computing (AC), where collective behavior is expressed through computational fields and implemented through local interactions among devices.
-
-\paragraph*{Self-stabilizing Min-Max Gossip}
-
-I completed a self-stabilizing min--max gossip algorithm for Aggregate Computing, addressing the persistence of obsolete values after transient faults or topology changes.
+Macro-programming addresses this complexity by allowing developers to specify collective behavior directly,
+rather than explicitly defining the interactions of every individual robot.
 %
-The proposed solution propagates the selected value together with information about its acknowledgement path, allowing obsolete contributions to be pruned and cyclic dependencies to be avoided.
+In AC, this is achieved through computational fields and reusable coordination mechanisms whose local execution gives rise to global,
+self-organizing behavior.
 %
-The algorithm was formally proved self-stabilizing, implemented as a reusable library function for \textit{Collektive}, and published at COORDINATION 2026.
-
-\paragraph*{Self-organizing Distributed Particle Filtering}
-
-Another research line concerned Distributed Particle Filtering (DPF).
+The long-term goal of this research is
+a middleware layer that lifts to the collective level the abstractions an operating system provides on a single robot
+-- processes that can be started, suspended, and terminated, signals and permissions,
+inter-process communication, and sensors and actuators exposed as logical resources --
+so that a robotic collective becomes something that can be managed at runtime.
 %
-Existing approaches often embed architectural decisions directly into the filtering algorithm, for example by relying on a central fusion node, selected leaders, or fully decentralized consensus.
+Aggregate Computing provides the paradigm on which such a layer can be built,
+however, several challenges remain to be addressed before this vision can be realized,
+for example a deployment still executes a single, fixed collective program, with no way to preempt it, replace it, or let several collective computations coexist,
+which is what an operating-system layer is expected to provide.
+
+During this year, I consolidated this research direction through three main contributions addressing resilient coordination, collective sensing, and safety during transient adaptation.
 %
-The work investigates how these coordination choices can instead be separated from the filtering logic and adapted at runtime.
-
-The main components of DPF are expressed through computational fields, namely distributed data structures that associate values with devices and evolve through local interactions.
+The first is a self-stabilizing min--max gossip algorithm for AC, designed to recover from transient faults and topology changes without explicitly resetting the distributed state.
 %
-This allows estimation and coordination to be described within the same model while adapting to changes in connectivity, sensing conditions, mobility, and device availability.
-
-The first formulation, presented at DCOSS-IoT 2026, showed how different DPF organizations can be obtained by changing coordination and information-dissemination strategies without modifying the filtering logic.
+The algorithm propagates the selected value together with information about its acknowledgement path, enabling obsolete contributions to be removed.
 %
-The work was extended for ACSOS 2026 to a multi-target tracking scenario in which mobile observers track multiple moving targets while maintaining a simple spatial formation.
+It has been published at COORDINATION 2026.
+
+The second contribution concerns Distributed Particle Filtering (DPF), where existing algorithms commonly embed architectural choices such as centralized fusion, leader-based aggregation, or decentralized consensus directly into the filtering protocol.
 %
-This allowed distributed estimation to be evaluated together with observer mobility and changing network connectivity.
-
-\paragraph*{Integration of Control Barrier Functions for Safety-Critical Guarantees in Aggregate Computing}
-
-From January to April 2026, I carried out a research period at Mälardalen University (MDU), within the Mälardalen University Automation Research Center (MARC), under the supervision of Prof. Alessandro Vittorio Papadopoulos.
-
-The activity focused on integrating Control Lyapunov Functions (CLFs) and Control Barrier Functions (CBFs) with Aggregate Computing.
+I investigated a field-based formulation in which these coordination choices are separated from the filtering logic and can therefore be changed without redesigning the estimator.
 %
-The resulting architecture separates the nominal collective behavior computed by the aggregate program from a distributed safety filter that refines commands before actuation.
+The first formulation, presented at DCOSS-IoT 2026, showed how different DPF organizations can be expressed within the same model by varying coordination and information-dissemination strategies.
 %
-The safety filter enforces requirements such as obstacle avoidance, inter-robot collision avoidance, and connectivity preservation.
+The work was then extended for ACSOS 2026 to multi-target tracking with mobile observers that move while maintaining a simple spatial formation, allowing estimation to be evaluated together with observer mobility and changing network connectivity.
+
+The third contribution concerns safety during transient adaptation, developed during my research period at Mälardalen University and resulting in the SISSY 2026 paper on a distributed control-theoretic safety filter for aggregate-programmed robot swarms.
 %
-A working implementation was developed in \textit{Collektive} and validated through simulation in Alchemist.
-
-The collaboration with the MARC group continued after the research stay and led to a joint paper in the ACSOS 2026 Companion proceedings (SISSY).
+From January to April 2026, I carried out a research period at the Mälardalen University Automation Research Center (MARC), Mälardalen University, under the supervision of Prof. Alessandro Vittorio Papadopoulos.
 %
-Future work will consider more complex formations, such as geometric formations that must be preserved while the swarm moves, together with the corresponding safety guarantees.
-
-\paragraph*{Collektive Framework}
-
-In parallel, I am contributing to an ongoing journal work on \textit{Collektive}, the Kotlin-based Aggregate Computing framework used throughout my research.
+The activity investigated how the eventual guarantees provided by self-stabilizing aggregate programs can be complemented with control-theoretic guarantees that also hold during transient adaptation phases.
 %
-The work aims to consolidate the framework and extend its reusable coordination libraries.
-
-The algorithms and abstractions developed during the PhD are intended, when sufficiently general, to become reusable building blocks within these libraries rather than remain tied to individual experiments.
-
-\paragraph*{Scientific Community Service}
-
-During 2026, I served as Publicity Chair for the 7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2026), hosted at the Cesena Campus of the University of Bologna.
+To this end, I worked on the integration of Control Lyapunov Functions (CLFs) and Control Barrier Functions (CBFs) with Aggregate Computing.
 %
-I also served as a reviewer for \textit{Complex \& Intelligent Systems}, a Q1 peer-reviewed journal.
+The resulting architecture separates the nominal collective behavior computed by the aggregate program from a distributed safety filter that refines commands before actuation, enforcing constraints such as obstacle avoidance, inter-robot collision avoidance, and connectivity preservation.
 
 \paragraph*{Research Plan for the Next Year}
 
 During the next year, I plan to consolidate and extend the main research lines developed so far.
 
-Building on the FieldVMC work developed during the previous year, I will investigate an extension combining its morphogenetic growth process with Artificial Potential Fields (APFs) and Signed Distance Fields (SDFs).
+Building on the FieldVMC work developed during the previous year,
+I will investigate an extension combining its morphogenetic growth process with Artificial Potential Fields (APFs)
+and Signed Distance Fields (SDFs).
 %
-APFs will be used to steer the local evolution of the structure, while SDFs will provide a geometric representation of the desired shape and its boundaries.
+APFs will be used to steer the local evolution of the structure,
+while SDFs will provide a geometric representation of the desired shape and its boundaries.
 %
-The goal is to guide morphogenetic growth towards more complex artificial structures in simulation while preserving the decentralized and self-organizing properties of FieldVMC.
+The goal is to guide morphogenetic growth towards more complex artificial structures in simulation while
+preserving the decentralized and self-organizing properties of FieldVMC.
 
-The collaboration with Mälardalen University will continue by extending the safety-filter architecture to more complex swarm formations and studying safety during formation adaptation.
+The collaboration with Mälardalen University will continue by extending the safety-filter architecture to
+more complex swarm formations and studying safety during formation adaptation.
 
-The self-stabilizing gossip mechanism will be generalized beyond min--max consensus and investigated in other collective coordination problems.
+The self-stabilizing gossip mechanism will be generalized beyond min--max consensus
+and investigated in other collective coordination problems.
 
-The self-organizing DPF work will move towards more realistic and heterogeneous sensing scenarios, combining static sensors and mobile robotic sensors within the same estimation process.
+The self-organizing DPF work will move towards more realistic and heterogeneous sensing scenarios,
+combining static sensors and mobile robotic sensors within the same estimation process.
 %
-Mobile sensors will also coordinate their motion to maintain a stable formation while adapting to moving targets and changes in the sensing environment.
+Mobile sensors will also coordinate their motion to maintain a stable formation while adapting
+to moving targets and changes in the sensing environment.
 
-I will also continue contributing to the \textit{Collektive} journal work, with the goal of integrating reusable results from the PhD into the framework's coordination libraries.
+I will also continue contributing to the \textit{Collektive} journal work,
+with the goal of integrating reusable results from the PhD into the framework's coordination libraries.
 
-Finally, I will investigate how multiple collective applications can coexist and be adapted or preempted at runtime over partially overlapping and dynamically evolving groups of devices.
+Finally, I will investigate how multiple collective applications can coexist and be adapted or
+preempted at runtime over partially overlapping and dynamically evolving groups of devices.
 
 
 % =============================================================================
@@ -379,7 +376,7 @@ Finally, I will investigate how multiple collective applications can coexist and
   {Reykjavík, Iceland}
 
   \confentry
-  {ACSOS 2026 Publicity Chair}
+  {ACSOS 2026}
   {7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems}
   {7th -- 11th September, 2026}
   {Cesena, Italy}

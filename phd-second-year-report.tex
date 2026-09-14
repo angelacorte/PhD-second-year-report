@@ -106,6 +106,14 @@
   \textbf{#1} -- #2, #3, #4.
 }
 
+% Awards
+\newcommand{\awardentry}[5]{%
+  \item
+  \textbf{#1} -- for the contribution \textit{#2}.\\
+  Authors: #3.\\
+  #4, #5.
+}
+
 
 % =============================================================================
 % SECTION ENVIRONMENTS
@@ -155,6 +163,16 @@
 \newenvironment{conforg}
 {%
   \subsection*{Conferences Organization}
+  \begin{itemize}
+}
+{%
+  \end{itemize}
+}
+
+% Awards
+\newenvironment{awards}
+{%
+  \subsection*{Awards}
   \begin{itemize}
 }
 {%
@@ -452,6 +470,28 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
 \end{periodabroad}
 
 % =============================================================================
+% AWARDS
+%
+% \awardentry
+% {award}
+% {awarded contribution}
+% {authors}
+% {venue}
+% {date and location}
+% =============================================================================
+
+\begin{awards}
+
+  \awardentry
+  {Best Companion Artifact Award}
+  {Multi-Target Tracking via Field-Based Distributed Particle Filtering}
+  {\textbf{Angela Cortecchia}, Davide Domini, Giovanni Ciatto, Roberto Casadei, and Mirko Viroli}
+  {7th IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2026)}
+  {7th -- 11th September 2026, Cesena, Italy}
+
+\end{awards}
+
+% =============================================================================
 % PUBLICATIONS
 %
 % \pubentry
@@ -538,5 +578,6 @@ preempted at runtime over partially overlapping and dynamically evolving groups 
   {10.1016/j.scico.2026.103559}
 
 \end{publications}
+
 
 \end{document}
